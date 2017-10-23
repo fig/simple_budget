@@ -15,11 +15,15 @@ in the same spirit as Katrina Owen in this awesome video : https://www.youtube.c
 
 Some of my initial thoughts are and reasons I choose this code are :
 
-* Judging by the code,the person who wrote this code is probably an aspiring JR Sys Admin who has created a few shell or batch scripts and is probably running up against limitations that a more powerful language can bring
+* The code actually does something the original author wanted done.
+* Judging by the code,the person who wrote this code is probably an aspiring JR Sys Admin who has created a few shell or batch scripts and is probably running up against limitations that a more powerful language can bring.
 * The code is very procedural in nature and does not include the word 'class' anywhere in it. This should serve as a gateway to introduce object oriented programming concepts.
 * The code is not DRY, so it should be good for introducing those concepts.
 * The code is not easily testable and should be a good demo for testing
-* The code is using global variables and should be a good example why not to use those
-* The code worries about distinguishing functions from variables and should be a good demo for why that does not matter
+* The code is using global variables and should be a good example why not to use those.
+* The code worries about distinguishing functions from variables and should be a good demo for why that does not matter.
 * It looks like the original author wanted to name things well but was struggling, I intend to help with that.
 * The code contains a LOT of comments and presents a good way to introduce self documenting code.
+* The code is also unsure of what data structures are best. This should provide a good insight into ['primitive obsession'](https://refactoring.guru/smells/primitive-obsession)
+* The code is about as non idiomatic ruby as you can get and presents a great opportunity to introduce 'the ruby way'.
+* The code is highly coupled which makes changing things hard. Show how orthogonality helps the coder.
