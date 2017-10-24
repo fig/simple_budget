@@ -92,20 +92,16 @@ end
 
 clear_the_screen
 
-
-number_of_people = get_input("How many people is this budget for? ").to_i
-
-members = member_register_loop_func(number_of_people)
-
-combined_monthly = combined_monthly_func(number_of_people, members)
-
-combined_annual = combined_annual_func(number_of_people, members)
-
-living = combined_monthly * 0.3
-bills = combined_monthly * 0.2
-gas = combined_monthly * 0.2
-groceries = combined_monthly * 0.18
-leftover = combined_monthly - (living + bills + gas + groceries)
+number_of_people   = get_input("How many people is this budget for? ").to_i
+members            = member_register_loop_func(number_of_people)
+combined_monthly   = combined_monthly_func(number_of_people, members)
+combined_annual    = combined_annual_func(number_of_people, members)
+  
+living             = combined_monthly * 0.3
+bills              = combined_monthly * 0.2
+gas                = combined_monthly * 0.2
+groceries          = combined_monthly * 0.18
+leftover           = combined_monthly - (living + bills + gas + groceries)
 
 individual_incomes = individual_incomes_message_func(members)
 

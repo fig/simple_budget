@@ -66,3 +66,6 @@ now I am going to manually test it... it works so I will now commit
 
 next, we have 6 statements that are printing a prompt and getting some input... perfect candidate for DRYing up... so let's
 create a generic function to do that also... finding a few more comments to delete...
+
+Some people don't like equal signs lined up... I do... because it makes it easier for me to read... so I will line them up , test
+and commit...
