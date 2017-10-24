@@ -69,3 +69,5 @@ create a generic function to do that also... finding a few more comments to dele
 
 Some people don't like equal signs lined up... I do... because it makes it easier for me to read... so I will line them up , test
 and commit...
+
+so now... those _func are just really bothering me... I will just rename all of those ... the code will be shorter and easier to read
