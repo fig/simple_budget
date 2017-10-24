@@ -10,11 +10,6 @@ def get_input message
   gets.chomp
 end
 
-def monthly_income hourly_pay, hours_worked
-  monthly_gross_income = hourly_pay * hours_worked * 4
-  monthly_gross_income - (monthly_gross_income * 0.10)
-end
-
 def annual_income monthly_net_income
   monthly_net_income * 12
 end
@@ -29,6 +24,11 @@ class Member
     @hours_worked = get_input("How many hours a week does #{member_name} work? ").to_i
   end
 
+  def monthly_income
+    monthly_gross_income = hourly_pay * hours_worked * 4
+    monthly_gross_income - (monthly_gross_income * 0.10)
+  end
+
 end
 
 def member_register user_number
@@ -37,10 +37,9 @@ def member_register user_number
 
   member = {}
 
-  monthly_net_income      = monthly_income(refactor_member.hourly_pay, refactor_member.hours_worked)
-  annual_income           = annual_income(monthly_net_income)
+  annual_income           = annual_income(refactor_member.monthly_income)
   member[:name]           = refactor_member.member_name
-  member[:monthly_income] = monthly_net_income
+  member[:monthly_income] = refactor_member.monthly_income
   member[:annual_income]  = annual_income
   member
 end
