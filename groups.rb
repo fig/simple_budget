@@ -43,7 +43,7 @@ class Group
   end
 
   def individual_incomes
-    members.reduce([]) { |incomes,user| incomes << "\n#{user.name} makes $#{'%.2f' % user.monthly_income} per month, and $#{'%.2f' % user.annual_income} per year." }
+    members.reduce([]) { |i,u| i << "\n#{u.name} makes $#{'%.2f' % u.monthly_income} per month, and $#{'%.2f' % u.annual_income} per year." }
   end
 
   def output_message
