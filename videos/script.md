@@ -86,3 +86,5 @@ Next, we will use a more idiomatic construct called reduce to get rid of the out
 
 Next, just as an example this time... in the future I will just routinely get rid of them without comment, in most places, ruby
 does not need the parenthesis... and reading the code is a lot easier without them...
+
+Lets make the idea of registering members a little clearer

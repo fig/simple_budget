@@ -56,7 +56,7 @@ def member_register(user)
   member[:name] = member_name
   member[:monthly_income] = monthly_net_income
   member[:annual_income] = annual_income
-  return member
+  member
 end
 
 def register_members(number_of_people)
