@@ -70,7 +70,7 @@ create a generic function to do that also... finding a few more comments to dele
 Some people don't like equal signs lined up... I do... because it makes it easier for me to read... so I will line them up , test
 and commit...
 
-so now... those _func are just really bothering me... I will just rename all of those ... the code will be shorter and easier to read
+so now... those _func_ are just really bothering me... I will just rename all of those ... the code will be shorter and easier to read
 
 So now I will talk a min about editors... I have used many editors and have been
 on a never ending quest for 'the perfect editor'... I have used many others, but currently, I am using a CODE FOLDING editor called Atom...  code folding allows you to hide code that you do not currently need to worry about... you may have noticed that the functions are 'rolled up' and you can see where they are defined... but not the code behind them... this allows my mind to look at
@@ -94,3 +94,5 @@ Ok.. so as an old hand, I would normally do a VERY invasive change to the core d
 So the combined_monthly / annually loops are examples where idiomatic ruby is MUCH easier to read and work with...
 
 firstly... an array already carries the number of elements in it so we don't need to pass that extra data in so let's get rid of that...
+
+Now... I see something else I want to test... is it REALLY necessary to do the elseif in the combined_monthly function? I don't know and don't really care at the moment, because I know there is a better way that will catch that single element condition anyway...

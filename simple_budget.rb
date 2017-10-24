@@ -20,27 +20,11 @@ def annual_income(monthly_net_income)
 end
 
 def combined_monthly members
-  combined_monthly = 0
-  if members.count > 1
-    members.each do |user|
-      combined_monthly += user[:monthly_income]
-    end
-  elsif
-    combined_monthly += members[0][:monthly_income]
-  end
-  combined_monthly
+  members.reduce(0) { |total,user| total += user[:monthly_income] }
 end
 
 def combined_annual members
-  combined_annual = 0
-  if members.count > 1
-    members.each do |user|
-      combined_annual += user[:annual_income]
-    end
-  elsif
-    combined_annual += members[0][:annual_income]
-  end
-  return combined_annual
+  members.reduce(0) { |total,user| total += user[:annual_income] }
 end
 
 def member_register(user)
