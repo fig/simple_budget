@@ -58,3 +58,8 @@ I am only leaving the program description at the top... because that really was 
 Then I am going to run the test... that works... now I am going to commit the changes.
 
 ok... let's DRY up the code a bit to make it a little more readable
+
+first, the screen clearing routine is exactly the same at the top and bottom... lets turn that into a single method... it is a bit longer, but I want it to be absolutely explicit what I am doing... I am also going to move the top clear_the_screen down with
+the other executable statements
+
+now I am going to manually test it... it works so I will now commit

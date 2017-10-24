@@ -1,7 +1,10 @@
 # This program calculates what someone/s make per month, per year,
 # and what they can afford to pay monthly for a living space
 
-Gem.win_platform? ? (system "cls") : (system "clear")
+
+def clear_the_screen
+  Gem.win_platform? ? (system "cls") : (system "clear")
+end
 
 def monthly_income_func(hourly_pay, hours_worked)
   monthly_gross_income = hourly_pay * hours_worked * 4
@@ -95,6 +98,8 @@ def write_to_output_file_func(number_of_people, individual_incomes, output_budge
   output_budget_text_file.write(budget_message)
 end
 
+clear_the_screen
+
 print "How many people is this budget for? "
 number_of_people = $stdin.gets.chomp.to_i
 
@@ -146,4 +151,5 @@ puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{D
 puts "Thank you for using Simple Budget!\n\n"
 
 $stdin.gets.chomp
-Gem.win_platform? ? (system "cls") : (system "clear")
+
+clear_the_screen
