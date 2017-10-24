@@ -1,3 +1,5 @@
+require 'ostruct'
+
 # This program calculates what someone/s make per month, per year,
 # and what they can afford to pay monthly for a living space
 
@@ -35,7 +37,7 @@ def member_register user_number
 
   refactor_member = Member.new user_number
 
-  member = {}
+  member = OpenStruct.new
 
   member[:name]           = refactor_member.member_name
   member[:monthly_income] = refactor_member.monthly_income
