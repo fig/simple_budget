@@ -79,6 +79,13 @@ Also remember to try and stay under budget so that
 you have more left over each month.
 MSG
 
-puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{Dir.pwd}\n\n\n\n"
+clear_the_screen
 
-puts "Thank you for using Simple Budget!\n\n"
+puts info = <<INFO
+Your budget can be found in the same folder as this program:
+
+#{Dir.pwd}
+
+Thank you for using Simple Budget!
+
+INFO
