@@ -41,11 +41,6 @@ def register_members number_of_people
   end
 end
 
-def write_to_output_file(number_of_people, individual_incomes, output_budget_text_file, budget_message)
-  output_budget_text_file.write individual_incomes.join
-  output_budget_text_file.write budget_message 
-end
-
 clear_the_screen
 
 number_of_people   = get_input("How many people is this budget for? ").to_i
@@ -84,7 +79,9 @@ output_file_name = "#{output_file_name}.txt"
 
 output_budget_text_file = open(output_file_name, 'w')
 
-write_to_output_file(number_of_people, individual_incomes, output_budget_text_file, budget_message)
+output_budget_text_file.write individual_incomes.join
+output_budget_text_file.write budget_message
+
 
 output_budget_text_file.close
 
