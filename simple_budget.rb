@@ -10,10 +10,6 @@ def get_input message
   gets.chomp
 end
 
-def annual_income monthly_net_income
-  monthly_net_income * 12
-end
-
 class Member
 
   attr_reader :member_name, :hourly_pay, :hours_worked
@@ -29,6 +25,10 @@ class Member
     monthly_gross_income - (monthly_gross_income * 0.10)
   end
 
+  def annual_income
+    monthly_income * 12
+  end
+
 end
 
 def member_register user_number
@@ -37,10 +37,9 @@ def member_register user_number
 
   member = {}
 
-  annual_income           = annual_income(refactor_member.monthly_income)
   member[:name]           = refactor_member.member_name
   member[:monthly_income] = refactor_member.monthly_income
-  member[:annual_income]  = annual_income
+  member[:annual_income]  = refactor_member.annual_income
   member
 end
 
