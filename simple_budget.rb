@@ -59,7 +59,7 @@ def member_register(user)
   return member
 end
 
-def member_register_loop(number_of_people)
+def register_members(number_of_people)
   number_of_people.times.reduce([]) do |members,user|
     member = member_register user
     members.push member
@@ -86,7 +86,7 @@ end
 clear_the_screen
 
 number_of_people   = get_input("How many people is this budget for? ").to_i
-members            = member_register_loop(number_of_people)
+members            = register_members(number_of_people)
 combined_monthly   = combined_monthly(number_of_people, members)
 combined_annual    = combined_annual(number_of_people, members)
 

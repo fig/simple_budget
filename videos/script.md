@@ -83,3 +83,6 @@ a go...
 The first thing I am going to do.. is get rid of the RANGE and use a more idiomatic ruby construct ... times
 
 Next, we will use a more idiomatic construct called reduce to get rid of the outer temp variables
+
+Next, just as an example this time... in the future I will just routinely get rid of them without comment, in most places, ruby
+does not need the parenthesis... and reading the code is a lot easier without them...
