@@ -59,6 +59,10 @@ class Group
     combined_monthly - (living + bills + gas + groceries)
   end
 
+  def individual_incomes
+    members.reduce([]) { |incomes,user| incomes << "\n#{user.name} makes $#{sprintf('%.2f', user.monthly_income)} per month, and $#{sprintf('%.2f', user.annual_income)} per year." }
+  end
+
 end
 
 clear_the_screen
@@ -75,7 +79,7 @@ gas                = group.gas
 groceries          = group.groceries
 leftover           = group.leftover
 
-individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user.name} makes $#{sprintf('%.2f', user.monthly_income)} per month, and $#{sprintf('%.2f', user.annual_income)} per year." }
+individual_incomes = group.individual_incomes
 
 file_name          = get_input "\n\nWhat would you like to name your budget? "
 file_name          = "#{file_name}.txt"
