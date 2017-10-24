@@ -56,10 +56,10 @@ leftover           = combined_monthly - (living + bills + gas + groceries)
 
 individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year." }
 
-file_name = get_input "\n\nWhat would you like to name your budget? "
-file_name = "#{file_name}.txt"
+file_name          = get_input "\n\nWhat would you like to name your budget? "
+file_name          = "#{file_name}.txt"
 
-output_file = open(file_name, 'w')
+output_file        = open(file_name, 'w')
 output_file.write individual_incomes.join
 output_file.write msg = <<MSG
 
@@ -78,8 +78,6 @@ and provide room for flexibility.
 Also remember to try and stay under budget so that
 you have more left over each month.
 MSG
-
-output_file.close
 
 puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{Dir.pwd}\n\n\n\n"
 
