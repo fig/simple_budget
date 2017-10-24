@@ -61,7 +61,7 @@ file_name = "#{file_name}.txt"
 
 output_file = open(file_name, 'w')
 output_file.write individual_incomes.join
-output_file.write <<MSG
+output_file.write msg = <<MSG
 
 Combined, this household makes $#{sprintf('%.2f', combined_monthly)} per month, and $#{sprintf('%.2f', combined_annual)} per year.
 
