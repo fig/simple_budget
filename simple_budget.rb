@@ -20,11 +20,15 @@ class Group
     @number_of_people = get_input("How many people is this budget for? ").to_i
   end
 
-  def members
+  def create_members
     @number_of_people.times.reduce([]) do |members,user_number|
       member = Member.new user_number
       members.push member
     end
+  end
+
+  def members
+    @members ||= create_members
   end
 
 end
