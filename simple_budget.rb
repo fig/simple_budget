@@ -1,18 +1,11 @@
+require './input_output'
 require './members'
 require './groups'
 
 # This program calculates what someone/s make per month, per year,
 # and what they can afford to pay monthly for a living space
 
-def clear_the_screen
-  Gem.win_platform? ? (system "cls") : (system "clear")
-end
-
-def get_input message
-  print message
-  gets.chomp
-end
-
+include InputOutput
 
 clear_the_screen
 
