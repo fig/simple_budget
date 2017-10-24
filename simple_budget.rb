@@ -12,13 +12,6 @@ def get_input message
   gets.chomp
 end
 
-def register_members number_of_people
-  number_of_people.times.reduce([]) do |members,user_number|
-    member = Member.new user_number
-    members.push member
-  end
-end
-
 class Group
 
   attr_reader :number_of_people
@@ -28,7 +21,10 @@ class Group
   end
 
   def members
-    register_members @number_of_people
+    @number_of_people.times.reduce([]) do |members,user_number|
+      member = Member.new user_number
+      members.push member
+    end
   end
 
 end
