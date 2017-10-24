@@ -34,15 +34,7 @@ class Member
 end
 
 def member_register user_number
-
-  refactor_member = Member.new user_number
-
-  member = OpenStruct.new
-
-  member[:name]           = refactor_member.name
-  member[:monthly_income] = refactor_member.monthly_income
-  member[:annual_income]  = refactor_member.annual_income
-  member
+  Member.new user_number
 end
 
 def register_members number_of_people
