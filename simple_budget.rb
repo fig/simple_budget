@@ -82,7 +82,3 @@ MSG
 puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{Dir.pwd}\n\n\n\n"
 
 puts "Thank you for using Simple Budget!\n\n"
-
-get_input ''
-
-clear_the_screen
