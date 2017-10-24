@@ -14,10 +14,6 @@ class Group
     end
   end
 
-  # def members
-  #   @members ||= create_members
-  # end
-
   def combined_monthly
     members.reduce(0) { |total,user| total += user.monthly_income }
   end
@@ -51,8 +47,7 @@ class Group
   end
 
   def output_message
-    # individual_incomes.join
-    aggregate_output_message
+    individual_incomes + aggregate_output_message
   end
 
   def aggregate_output_message
