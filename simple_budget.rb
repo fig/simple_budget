@@ -19,10 +19,22 @@ def register_members number_of_people
   end
 end
 
+class Group
+
+  attr_reader :number_of_people
+
+  def initialize
+    @number_of_people = get_input("How many people is this budget for? ").to_i
+  end
+
+end
+
 clear_the_screen
 
-number_of_people   = get_input("How many people is this budget for? ").to_i
-members            = register_members number_of_people
+refactor_members = Group.new
+
+number_of_people   = refactor_members.number_of_people
+members            = register_members refactor_members.number_of_people
 
 combined_monthly   = members.reduce(0) { |total,user| total += user.monthly_income }
 combined_annual    = members.reduce(0) { |total,user| total += user.annual_income }
