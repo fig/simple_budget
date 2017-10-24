@@ -41,14 +41,6 @@ def register_members(number_of_people)
   end
 end
 
-def individual_incomes_message(members)
-  individual_incomes = []
-  members.each do |user|
-    individual_incomes << "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year."
-  end
-  individual_incomes
-end
-
 def write_to_output_file(number_of_people, individual_incomes, output_budget_text_file, budget_message)
   (0...number_of_people).each do |user|
     output_budget_text_file.write(individual_incomes[user])
@@ -69,7 +61,7 @@ gas                = combined_monthly * 0.2
 groceries          = combined_monthly * 0.18
 leftover           = combined_monthly - (living + bills + gas + groceries)
 
-individual_incomes = individual_incomes_message(members)
+individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year." }
 
 budget_message = <<MSG
 
