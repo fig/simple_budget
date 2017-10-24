@@ -18,9 +18,6 @@ clear_the_screen
 
 group              = Group.new
 
-combined_monthly   = group.combined_monthly
-combined_annual    = group.combined_annual
-
 individual_incomes = group.individual_incomes
 
 file_name          = get_input "\n\nWhat would you like to name your budget? "
