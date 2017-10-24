@@ -56,8 +56,8 @@ clear_the_screen
 
 number_of_people   = get_input("How many people is this budget for? ").to_i
 members            = register_members number_of_people
-combined_monthly   = members.reduce(0) { |total,user| total += user[:monthly_income] }
-combined_annual    = members.reduce(0) { |total,user| total += user[:annual_income] }
+combined_monthly   = members.reduce(0) { |total,user| total += user.monthly_income }
+combined_annual    = members.reduce(0) { |total,user| total += user.annual_income }
 
 living             = combined_monthly * 0.3
 bills              = combined_monthly * 0.2
@@ -65,7 +65,7 @@ gas                = combined_monthly * 0.2
 groceries          = combined_monthly * 0.18
 leftover           = combined_monthly - (living + bills + gas + groceries)
 
-individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year." }
+individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user.name} makes $#{sprintf('%.2f', user.monthly_income)} per month, and $#{sprintf('%.2f', user.annual_income)} per year." }
 
 file_name          = get_input "\n\nWhat would you like to name your budget? "
 file_name          = "#{file_name}.txt"
