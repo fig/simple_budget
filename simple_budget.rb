@@ -16,13 +16,12 @@ end
 
 clear_the_screen
 
-group              = Group.new
+group       = Group.new
 
-file_name          = get_input "\n\nWhat would you like to name your budget? "
-file_name          = "#{file_name}.txt"
+file_name   = get_input "\n\nWhat would you like to name your budget? "
 
-output_file        = open(file_name, 'w')
-output_file.write group.individual_incomes.join
+output_file = open("#{file_name}.txt", 'w')
+output_file.write group.individual_incomes
 output_file.write group.output_message
 
 clear_the_screen
