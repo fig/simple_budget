@@ -33,7 +33,6 @@ clear_the_screen
 
 refactor_members = Group.new
 
-number_of_people   = refactor_members.number_of_people
 members            = refactor_members.members
 
 combined_monthly   = members.reduce(0) { |total,user| total += user.monthly_income }
