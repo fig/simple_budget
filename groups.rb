@@ -15,7 +15,7 @@ class Group
   end
 
   def combined_monthly
-    members.reduce(0) { |total,user| total += user.monthly_income }
+    @combined_monthly ||= members.reduce(0) { |total,user| total += user.monthly_income }
   end
 
   def combined_annual
