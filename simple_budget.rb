@@ -39,6 +39,26 @@ class Group
     members.reduce(0) { |total,user| total += user.annual_income }
   end
 
+  def living
+    combined_monthly * 0.3
+  end
+
+  def bills
+    combined_monthly * 0.2
+  end
+
+  def gas
+    combined_monthly * 0.2
+  end
+
+  def groceries
+    combined_monthly * 0.18
+  end
+
+  def leftover
+    combined_monthly - (living + bills + gas + groceries)
+  end
+
 end
 
 clear_the_screen
@@ -49,11 +69,11 @@ members            = group.members
 combined_monthly   = group.combined_monthly
 combined_annual    = group.combined_annual
 
-living             = combined_monthly * 0.3
-bills              = combined_monthly * 0.2
-gas                = combined_monthly * 0.2
-groceries          = combined_monthly * 0.18
-leftover           = combined_monthly - (living + bills + gas + groceries)
+living             = group.living
+bills              = group.bills
+gas                = group.gas
+groceries          = group.groceries
+leftover           = group.leftover
 
 individual_incomes = members.reduce([]) { |incomes,user| incomes << "\n#{user.name} makes $#{sprintf('%.2f', user.monthly_income)} per month, and $#{sprintf('%.2f', user.annual_income)} per year." }
 
