@@ -31,14 +31,23 @@ class Group
     @members ||= create_members
   end
 
+  def combined_monthly
+    members.reduce(0) { |total,user| total += user.monthly_income }
+  end
+
+  def combined_annual
+    members.reduce(0) { |total,user| total += user.annual_income }
+  end
+
 end
 
 clear_the_screen
 
-members            = Group.new.members
+group              = Group.new
+members            = group.members
 
-combined_monthly   = members.reduce(0) { |total,user| total += user.monthly_income }
-combined_annual    = members.reduce(0) { |total,user| total += user.annual_income }
+combined_monthly   = group.combined_monthly
+combined_annual    = group.combined_annual
 
 living             = combined_monthly * 0.3
 bills              = combined_monthly * 0.2
