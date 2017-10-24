@@ -7,19 +7,19 @@ end
 
 def get_input message
   print message
-  $stdin.gets.chomp
+  gets.chomp
 end
 
-def monthly_income(hourly_pay, hours_worked)
+def monthly_income hourly_pay, hours_worked
   monthly_gross_income = hourly_pay * hours_worked * 4
   monthly_gross_income - (monthly_gross_income * 0.10)
 end
 
-def annual_income(monthly_net_income)
+def annual_income monthly_net_income
   monthly_net_income * 12
 end
 
-def member_register(user)
+def member_register user
   member = {}
 
   member_name             = get_input "\n\nName of budget member ##{user}: "
@@ -34,7 +34,7 @@ def member_register(user)
   member
 end
 
-def register_members(number_of_people)
+def register_members number_of_people
   number_of_people.times.reduce([]) do |members,user|
     member = member_register user
     members.push member
