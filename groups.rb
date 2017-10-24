@@ -1,9 +1,10 @@
 class Group
 
-  attr_reader :number_of_people
+  attr_reader :number_of_people, :members
 
   def initialize
     @number_of_people = get_input("How many people is this budget for? ").to_i
+    @members = create_members
   end
 
   def create_members
@@ -13,9 +14,9 @@ class Group
     end
   end
 
-  def members
-    @members ||= create_members
-  end
+  # def members
+  #   @members ||= create_members
+  # end
 
   def combined_monthly
     members.reduce(0) { |total,user| total += user.monthly_income }
@@ -50,6 +51,11 @@ class Group
   end
 
   def output_message
+    # individual_incomes.join
+    aggregate_output_message
+  end
+
+  def aggregate_output_message
     msg = <<~MSG
 
     Combined, this household makes $#{sprintf('%.2f', combined_monthly)} per month, and $#{sprintf('%.2f', combined_annual)} per year.
