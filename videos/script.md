@@ -71,3 +71,13 @@ Some people don't like equal signs lined up... I do... because it makes it easie
 and commit...
 
 so now... those _func are just really bothering me... I will just rename all of those ... the code will be shorter and easier to read
+
+So now I will talk a min about editors... I have used many editors and have been
+on a never ending quest for 'the perfect editor'... I have used many others, but currently, I am using a CODE FOLDING editor called Atom...  code folding allows you to hide code that you do not currently need to worry about... you may have noticed that the functions are 'rolled up' and you can see where they are defined... but not the code behind them... this allows my mind to look at
+the code I want to see and not get distracted by code I don't.
+
+SO... with all the functions rolled up... I am looking at the statements and the first one I get to that I don't have 100%
+knowledge of is the member_register_loop... so I unroll that function and see a very amateurish attempt at a loop... let's give it
+a go...
+
+The first thing I am going to do.. is get rid of the RANGE and use a more idiomatic ruby construct ... times

@@ -1,7 +1,6 @@
 # This program calculates what someone/s make per month, per year,
 # and what they can afford to pay monthly for a living space
 
-
 def clear_the_screen
   Gem.win_platform? ? (system "cls") : (system "clear")
 end
@@ -61,13 +60,9 @@ def member_register(user)
 end
 
 def member_register_loop(number_of_people)
-  # This creates an empty array called "members"
   members = []
-  (1..number_of_people).each do |user|
-    # This runs the "member_register" function and stores the output hash
-    # inside the variable "member"
+  number_of_people.times.each do |user|
     member = member_register(user)
-
     members.push(member)
   end
   members
