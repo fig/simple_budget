@@ -14,12 +14,12 @@ end
 
 class Member
 
-  attr_reader :member_name, :hourly_pay, :hours_worked
+  attr_reader :name, :hourly_pay, :hours_worked
 
   def initialize user_number
-    @member_name  = get_input "\n\nName of budget member ##{user_number}: "
-    @hourly_pay   = get_input("How much does #{member_name} make an hour? $").to_i
-    @hours_worked = get_input("How many hours a week does #{member_name} work? ").to_i
+    @name         = get_input "\n\nName of budget member ##{user_number}: "
+    @hourly_pay   = get_input("How much does #{name} make an hour? $").to_i
+    @hours_worked = get_input("How many hours a week does #{name} work? ").to_i
   end
 
   def monthly_income
@@ -39,7 +39,7 @@ def member_register user_number
 
   member = OpenStruct.new
 
-  member[:name]           = refactor_member.member_name
+  member[:name]           = refactor_member.name
   member[:monthly_income] = refactor_member.monthly_income
   member[:annual_income]  = refactor_member.annual_income
   member
