@@ -31,9 +31,7 @@ end
 
 clear_the_screen
 
-refactor_members = Group.new
-
-members            = refactor_members.members
+members            = Group.new.members
 
 combined_monthly   = members.reduce(0) { |total,user| total += user.monthly_income }
 combined_annual    = members.reduce(0) { |total,user| total += user.annual_income }
