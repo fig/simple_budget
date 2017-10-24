@@ -19,14 +19,6 @@ def annual_income(monthly_net_income)
   monthly_net_income * 12
 end
 
-def combined_monthly members
-  members.reduce(0) { |total,user| total += user[:monthly_income] }
-end
-
-def combined_annual members
-  members.reduce(0) { |total,user| total += user[:annual_income] }
-end
-
 def member_register(user)
   member = {}
 
@@ -70,8 +62,8 @@ clear_the_screen
 
 number_of_people   = get_input("How many people is this budget for? ").to_i
 members            = register_members number_of_people
-combined_monthly   = combined_monthly members
-combined_annual    = combined_annual members
+combined_monthly   = members.reduce(0) { |total,user| total += user[:monthly_income] }
+combined_annual    = members.reduce(0) { |total,user| total += user[:annual_income] }
 
 living             = combined_monthly * 0.3
 bills              = combined_monthly * 0.2
