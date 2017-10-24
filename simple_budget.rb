@@ -44,9 +44,7 @@ end
 def individual_incomes_message(members)
   individual_incomes = []
   members.each do |user|
-    message =  "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year."
-
-    individual_incomes << message
+    individual_incomes << "\n#{user[:name]} makes $#{sprintf('%.2f', user[:monthly_income])} per month, and $#{sprintf('%.2f', user[:annual_income])} per year."
   end
   individual_incomes
 end

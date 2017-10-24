@@ -96,3 +96,7 @@ So the combined_monthly / annually loops are examples where idiomatic ruby is MU
 firstly... an array already carries the number of elements in it so we don't need to pass that extra data in so let's get rid of that...
 
 Now... I see something else I want to test... is it REALLY necessary to do the elseif in the combined_monthly function? I don't know and don't really care at the moment, because I know there is a better way that will catch that single element condition anyway...
+
+Now we have just one more ugly loop... let's clean that up a tad
+
+first, let's get rid of the temp variable
