@@ -42,10 +42,8 @@ def register_members number_of_people
 end
 
 def write_to_output_file(number_of_people, individual_incomes, output_budget_text_file, budget_message)
-  (0...number_of_people).each do |user|
-    output_budget_text_file.write(individual_incomes[user])
-  end
-  output_budget_text_file.write(budget_message)
+  output_budget_text_file.write individual_incomes.join
+  output_budget_text_file.write budget_message 
 end
 
 clear_the_screen
