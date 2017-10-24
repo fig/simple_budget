@@ -19,9 +19,9 @@ def annual_income(monthly_net_income)
   monthly_net_income * 12
 end
 
-def combined_monthly(number_of_people, members)
+def combined_monthly members
   combined_monthly = 0
-  if number_of_people > 1
+  if members.count > 1
     members.each do |user|
       combined_monthly += user[:monthly_income]
     end
@@ -31,9 +31,9 @@ def combined_monthly(number_of_people, members)
   combined_monthly
 end
 
-def combined_annual(number_of_people, members)
+def combined_annual members
   combined_annual = 0
-  if number_of_people > 1
+  if members.count > 1
     members.each do |user|
       combined_annual += user[:annual_income]
     end
@@ -46,16 +46,15 @@ end
 def member_register(user)
   member = {}
 
-  member_name  = get_input "\n\nName of budget member ##{user}: "
-  hourly_pay   = get_input("How much does #{member_name} make an hour? $").to_i
-  hours_worked = get_input("How many hours a week does #{member_name} work? ").to_i
+  member_name             = get_input "\n\nName of budget member ##{user}: "
+  hourly_pay              = get_input("How much does #{member_name} make an hour? $").to_i
+  hours_worked            = get_input("How many hours a week does #{member_name} work? ").to_i
 
-  monthly_net_income = monthly_income(hourly_pay, hours_worked)
-  annual_income = annual_income(monthly_net_income)
-
-  member[:name] = member_name
+  monthly_net_income      = monthly_income(hourly_pay, hours_worked)
+  annual_income           = annual_income(monthly_net_income)
+  member[:name]           = member_name
   member[:monthly_income] = monthly_net_income
-  member[:annual_income] = annual_income
+  member[:annual_income]  = annual_income
   member
 end
 
@@ -86,9 +85,9 @@ end
 clear_the_screen
 
 number_of_people   = get_input("How many people is this budget for? ").to_i
-members            = register_members(number_of_people)
-combined_monthly   = combined_monthly(number_of_people, members)
-combined_annual    = combined_annual(number_of_people, members)
+members            = register_members number_of_people
+combined_monthly   = combined_monthly members
+combined_annual    = combined_annual members
 
 living             = combined_monthly * 0.3
 bills              = combined_monthly * 0.2

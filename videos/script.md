@@ -88,3 +88,9 @@ Next, just as an example this time... in the future I will just routinely get ri
 does not need the parenthesis... and reading the code is a lot easier without them...
 
 Lets make the idea of registering members a little clearer
+
+Ok.. so as an old hand, I would normally do a VERY invasive change to the core data structures here, and the code would not work for quite a while as I made the changes... maybe 1-4 hours, but more teachable refactors exist so I will go the long way home
+
+So the combined_monthly / annually loops are examples where idiomatic ruby is MUCH easier to read and work with...
+
+firstly... an array already carries the number of elements in it so we don't need to pass that extra data in so let's get rid of that...
