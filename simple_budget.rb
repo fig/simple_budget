@@ -19,16 +19,27 @@ def annual_income monthly_net_income
   monthly_net_income * 12
 end
 
+class Member
+
+  attr_reader :member_name, :hourly_pay, :hours_worked
+
+  def initialize user_number
+    @member_name  = get_input "\n\nName of budget member ##{user_number}: "
+    @hourly_pay   = get_input("How much does #{member_name} make an hour? $").to_i
+    @hours_worked = get_input("How many hours a week does #{member_name} work? ").to_i
+  end
+
+end
+
 def member_register user_number
+
+  refactor_member = Member.new user_number
+
   member = {}
 
-  member_name             = get_input "\n\nName of budget member ##{user_number}: "
-  hourly_pay              = get_input("How much does #{member_name} make an hour? $").to_i
-  hours_worked            = get_input("How many hours a week does #{member_name} work? ").to_i
-
-  monthly_net_income      = monthly_income(hourly_pay, hours_worked)
+  monthly_net_income      = monthly_income(refactor_member.hourly_pay, refactor_member.hours_worked)
   annual_income           = annual_income(monthly_net_income)
-  member[:name]           = member_name
+  member[:name]           = refactor_member.member_name
   member[:monthly_income] = monthly_net_income
   member[:annual_income]  = annual_income
   member
