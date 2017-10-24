@@ -74,16 +74,13 @@ Also remember to try and stay under budget so that
 you have more left over each month.
 MSG
 
-output_file_name = get_input "\n\nWhat would you like to name your budget? "
-output_file_name = "#{output_file_name}.txt"
+file_name = get_input "\n\nWhat would you like to name your budget? "
+file_name = "#{file_name}.txt"
 
-output_budget_text_file = open(output_file_name, 'w')
-
-output_budget_text_file.write individual_incomes.join
-output_budget_text_file.write budget_message
-
-
-output_budget_text_file.close
+output_file = open(file_name, 'w')
+output_file.write individual_incomes.join
+output_file.write budget_message
+output_file.close
 
 puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{Dir.pwd}\n\n\n\n"
 
