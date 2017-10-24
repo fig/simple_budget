@@ -60,12 +60,10 @@ def member_register(user)
 end
 
 def member_register_loop(number_of_people)
-  members = []
-  number_of_people.times.each do |user|
+  number_of_people.times.reduce([]) do |members,user|
     member = member_register(user)
     members.push(member)
   end
-  members
 end
 
 def individual_incomes_message(members)

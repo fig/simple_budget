@@ -81,3 +81,5 @@ knowledge of is the member_register_loop... so I unroll that function and see a 
 a go...
 
 The first thing I am going to do.. is get rid of the RANGE and use a more idiomatic ruby construct ... times
+
+Next, we will use a more idiomatic construct called reduce to get rid of the outer temp variables
