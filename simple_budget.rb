@@ -6,6 +6,11 @@ def clear_the_screen
   Gem.win_platform? ? (system "cls") : (system "clear")
 end
 
+def get_input message
+  print message
+  $stdin.gets.chomp
+end
+
 def monthly_income_func(hourly_pay, hours_worked)
   monthly_gross_income = hourly_pay * hours_worked * 4
   monthly_gross_income - (monthly_gross_income * 0.10)
@@ -19,12 +24,9 @@ def combined_monthly_func(number_of_people, members)
   combined_monthly = 0
   if number_of_people > 1
     members.each do |user|
-      # This adds the previous value of the "combined_monthly" variable to the
-      # "monthly_net_income" element of each user's grouping in the array "members"
       combined_monthly += user[:monthly_income]
     end
   elsif
-    # This allows for a single user to make a budget as well.
     combined_monthly += members[0][:monthly_income]
   end
   combined_monthly
@@ -34,12 +36,9 @@ def combined_annual_func(number_of_people, members)
   combined_annual = 0
   if number_of_people > 1
     members.each do |user|
-      # This adds the previous value of the "combined_annual" variable to the
-      # "annual_income" element of each user's hash in the array "members"
       combined_annual += user[:annual_income]
     end
   elsif
-    # This allows for a single user to make a budget as well.
     combined_annual += members[0][:annual_income]
   end
   return combined_annual
@@ -48,20 +47,13 @@ end
 def member_register_func(user)
   member = {}
 
-  print "\n\nName of budget member ##{user}: "
-  member_name = $stdin.gets.chomp
-  print "How much does #{member_name} make an hour? $"
-  hourly_pay = $stdin.gets.chomp.to_i
-  print "How many hours a week does #{member_name} work? "
-  hours_worked = $stdin.gets.chomp.to_i
+  member_name  = get_input "\n\nName of budget member ##{user}: "
+  hourly_pay   = get_input("How much does #{member_name} make an hour? $").to_i
+  hours_worked = get_input("How many hours a week does #{member_name} work? ").to_i
 
-  # This calculates the monthly net income
   monthly_net_income = monthly_income_func(hourly_pay, hours_worked)
-  # This calculates the annual income
   annual_income = annual_income_func(monthly_net_income)
 
-  # This adds each of the entered and calculated variables into a hash known as
-  # "member". This hash is returned at the end of the function
   member[:name] = member_name
   member[:monthly_income] = monthly_net_income
   member[:annual_income] = annual_income
@@ -100,8 +92,8 @@ end
 
 clear_the_screen
 
-print "How many people is this budget for? "
-number_of_people = $stdin.gets.chomp.to_i
+
+number_of_people = get_input("How many people is this budget for? ").to_i
 
 members = member_register_loop_func(number_of_people)
 
@@ -135,9 +127,7 @@ Also remember to try and stay under budget so that
 you have more left over each month.
 MSG
 
-print "\n\nWhat would you like to name your budget? "
-output_file_name = $stdin.gets.chomp
-
+output_file_name = get_input "\n\nWhat would you like to name your budget? "
 output_file_name = "#{output_file_name}.txt"
 
 output_budget_text_file = open(output_file_name, 'w')
@@ -150,6 +140,6 @@ puts "\n\n\nYour budget can be found in the same folder as this program: \n\n#{D
 
 puts "Thank you for using Simple Budget!\n\n"
 
-$stdin.gets.chomp
+get_input ''
 
 clear_the_screen
