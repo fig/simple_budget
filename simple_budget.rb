@@ -88,7 +88,6 @@ end
 clear_the_screen
 
 group              = Group.new
-members            = group.members
 
 combined_monthly   = group.combined_monthly
 combined_annual    = group.combined_annual
