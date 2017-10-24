@@ -19,10 +19,10 @@ def annual_income monthly_net_income
   monthly_net_income * 12
 end
 
-def member_register user
+def member_register user_number
   member = {}
 
-  member_name             = get_input "\n\nName of budget member ##{user}: "
+  member_name             = get_input "\n\nName of budget member ##{user_number}: "
   hourly_pay              = get_input("How much does #{member_name} make an hour? $").to_i
   hours_worked            = get_input("How many hours a week does #{member_name} work? ").to_i
 
@@ -35,8 +35,8 @@ def member_register user
 end
 
 def register_members number_of_people
-  number_of_people.times.reduce([]) do |members,user|
-    member = member_register user
+  number_of_people.times.reduce([]) do |members,user_number|
+    member = member_register user_number
     members.push member
   end
 end
