@@ -33,13 +33,9 @@ class Member
 
 end
 
-def member_register user_number
-  Member.new user_number
-end
-
 def register_members number_of_people
   number_of_people.times.reduce([]) do |members,user_number|
-    member = member_register user_number
+    member = Member.new user_number
     members.push member
   end
 end
