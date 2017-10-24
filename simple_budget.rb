@@ -61,8 +61,8 @@ end
 
 def member_register_loop(number_of_people)
   number_of_people.times.reduce([]) do |members,user|
-    member = member_register(user)
-    members.push(member)
+    member = member_register user
+    members.push member
   end
 end
 
