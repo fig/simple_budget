@@ -9,12 +9,15 @@ class Member
   end
 
   def monthly_income
-    monthly_gross_income = hourly_pay * hours_worked * 4
-    monthly_gross_income - (monthly_gross_income * 0.10)
+    monthly_gross_income * 0.9
   end
 
   def annual_income
     monthly_income * 12
+  end
+
+  def monthly_gross_income
+    hourly_pay * hours_worked * 4
   end
 
 end

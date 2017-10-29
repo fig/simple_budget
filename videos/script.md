@@ -100,3 +100,9 @@ Now... I see something else I want to test... is it REALLY necessary to do the e
 Now we have just one more ugly loop... let's clean that up a tad
 
 first, let's get rid of the temp variable
+
+...
+
+in closing, I would suggest some architectural changes now... like add more people or show report... make a non-interactive version
+
+things like that... but those I leave to the client for now...
