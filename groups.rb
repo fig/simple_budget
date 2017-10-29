@@ -1,6 +1,6 @@
 class Group
 
-  attr_reader :number_of_people, :members
+  attr_reader :members
 
   def initialize
     @number_of_people = get_input("How many people is this budget for? ").to_i
