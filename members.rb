@@ -8,12 +8,12 @@ class Member
     @hours_worked = get_input("How many hours a week does #{name} work? ").to_i
   end
 
-  def monthly_income
+  def net_monthly_income
     monthly_gross_income * 0.9
   end
 
   def annual_income
-    monthly_income * 12
+    net_monthly_income * 12
   end
 
   def monthly_gross_income

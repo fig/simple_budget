@@ -11,36 +11,36 @@ class Group
     @number_of_people.times.reduce([]) { |members,user_number| members.push Member.new user_number }
   end
 
-  def combined_monthly
-    @combined_monthly ||= members.reduce(0) { |total,user| total += user.monthly_income }
+  def combined_monthly_income
+    @combined_monthly_income ||= members.reduce(0) { |total,user| total += user.net_monthly_income }
   end
 
-  def combined_annual
+  def combined_annual_income
     members.reduce(0) { |total,user| total += user.annual_income }
   end
 
   def living
-    combined_monthly * 0.3
+    combined_monthly_income * 0.3
   end
 
   def bills
-    combined_monthly * 0.2
+    combined_monthly_income * 0.2
   end
 
   def gas
-    combined_monthly * 0.2
+    combined_monthly_income * 0.2
   end
 
   def groceries
-    combined_monthly * 0.18
+    combined_monthly_income * 0.18
   end
 
   def leftover
-    combined_monthly - (living + bills + gas + groceries)
+    combined_monthly_income - (living + bills + gas + groceries)
   end
 
   def individual_incomes
-    members.reduce([]) { |i,u| i << "\n#{u.name} makes $#{'%.2f' % u.monthly_income} per month, and $#{'%.2f' % u.annual_income} per year." }
+    members.reduce([]) { |i,u| i << "\n#{u.name} makes $#{'%.2f' % u.net_monthly_income} per month, and $#{'%.2f' % u.annual_income} per year." }
   end
 
   def output_message
@@ -50,7 +50,7 @@ class Group
   def aggregate_output_message
     msg = <<~MSG
 
-    Combined, this household makes $#{'%.2f' % combined_monthly} per month, and $#{'%.2f' % combined_annual} per year.
+    Combined, this household makes $#{'%.2f' % combined_monthly_income} per month, and $#{'%.2f' % combined_annual_income} per year.
 
     Here is a break down of your monthly budget:
       * You can afford a living expense of $#{'%.2f' % living}.
