@@ -8,10 +8,7 @@ class Group
   end
 
   def create_members
-    @number_of_people.times.reduce([]) do |members,user_number|
-      member = Member.new user_number
-      members.push member
-    end
+    @number_of_people.times.reduce([]) { |members,user_number| members.push Member.new user_number }
   end
 
   def combined_monthly
