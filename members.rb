@@ -1,6 +1,6 @@
 class Member
 
-  attr_reader :name, :hourly_pay, :hours_worked
+  attr_reader :name
 
   def initialize user_number
     @name         = get_input "\n\nName of budget member ##{user_number}: "
@@ -17,7 +17,7 @@ class Member
   end
 
   def monthly_gross_income
-    hourly_pay * hours_worked * 4
+    @hourly_pay * @hours_worked * 4
   end
 
 end
